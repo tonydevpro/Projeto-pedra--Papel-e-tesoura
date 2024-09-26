@@ -1,0 +1,40 @@
+
+@media(max-width: 500px) {
+    .player-options img,
+.enemy-options img{
+    width: 100%;
+    
+
+
+}
+
+}
+.player-options img,
+.enemy-options img{
+    max-width: 200px;
+    opacity: 0.3;
+    cursor: pointer;
+}
+.align{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    
+}
+.player-options,.enemy-options{
+    width: 50%;
+}
+.vencedor{
+    text-align: center;
+    background-color: rgba(228, 224, 10, 0.808);
+    border-radius: 40%;
+    color: white;
+    
+
+}
+footer{
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}

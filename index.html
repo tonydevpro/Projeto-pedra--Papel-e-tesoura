@@ -4,52 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo Pedra, papel ou tesoura</title>
+    <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
 
-    <style>
-
-        @media(max-width: 500px) {
-            .player-options img,
-        .enemy-options img{
-            width: 100%;
-            
-        
-
-        }
-
-        }
-        .player-options img,
-        .enemy-options img{
-            max-width: 200px;
-            opacity: 0.3;
-            cursor: pointer;
-        }
-        .align{
-            display: flex;
-            text-align: center;
-            align-items: center;
-            
-        }
-        .player-options,.enemy-options{
-            width: 50%;
-        }
-        .vencedor{
-            text-align: center;
-            background-color: rgba(228, 224, 10, 0.808);
-            border-radius: 40%;
-            color: white;
-            
-
-        }
-        footer{
-            margin-top: 4%;
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-        }
-    </style>
     
     <h1 style="text-align: center; padding: 1%;">Pedra, Papel ou Tesoura</h1>
     <h2 class="vencedor"></h2>
@@ -82,113 +41,8 @@
 
 
 
-    <script>
-        var elementos = document.querySelectorAll('.player-options div > img')
-        var playerOpt = '';
-        var inimigoOpt = '';
-
-
-        function validarVitoria(){
-
-            let vencedor = document.querySelector('.vencedor');
-
-            if(playerOpt == 'papel'){
-
-                if(inimigoOpt == 'papel'){
-                    //empate
-                    vencedor.innerHTML = 'O jogo foi empatado'
-                }
-                else if(inimigoOpt == 'tesoura'){
-                    //inimigo win
-                    vencedor.innerHTML = 'O inimigo ganhou'
-                }
-                else if(inimigoOpt == 'pedra'){
-                    //play win
-                    vencedor.innerHTML = 'O player ganhou'
-                }
+    <script src="script.js">
     
-            }
-
-            if(playerOpt == 'pedra'){
-
-                if(inimigoOpt == 'papel'){
-                    
-                    vencedor.innerHTML = 'O inimigo ganhou'
-                }
-                else if(inimigoOpt == 'tesoura'){
-                    
-                    vencedor.innerHTML = 'O player ganhou'
-                }
-                else if(inimigoOpt == 'pedra'){
-                    
-                    vencedor.innerHTML = 'O jogo foi empatado'
-                }
-
-            }
-
-            if(playerOpt == 'tesoura'){
-
-                if(inimigoOpt == 'papel'){
-                    
-                    vencedor.innerHTML = 'O player ganhou'
-                }
-                else if(inimigoOpt == 'tesoura'){
-                    
-                    vencedor.innerHTML = 'O jogo foi empatado'
-                }
-                else if(inimigoOpt == 'pedra'){
-                    
-                    vencedor.innerHTML = 'O inimigo ganhou'
-            }
-
-            }
-
-        }
-
-        function resetInimigo(){
-            const enemyOptions = document.querySelectorAll('.enemy-options div');
-
-            for(var i = 0; i < enemyOptions.length; i++){
-                enemyOptions[i].childNodes[0].style.opacity = 0.3;
-            }
-        }
-
-        function inimigoJogar(){
-            let rand = Math.floor(Math.random()*3);
-
-            const enemyOptions = document.querySelectorAll('.enemy-options div');
-            resetInimigo();
-            for(var i = 0; i < enemyOptions.length; i++){
-                if(i == rand){
-                    enemyOptions[i].childNodes[0].style.opacity = 1;
-                    inimigoOpt = enemyOptions[i].childNodes[0].getAttribute('opt');
-                }
-            };
-        
-
-            validarVitoria();
-
-            
-        }
-
-
-        function resetOpacityPlayer(){
-            for(var i = 0; i < elementos.length; i++){
-                elementos[i].style.opacity = 0.3;
-            }
-        }
-
-
-        for(var i = 0; i<elementos.length; i++){
-            elementos[i].addEventListener('click', function(t){
-                resetOpacityPlayer();
-                t.target.style.opacity = 1;
-                playerOpt = t.target.getAttribute('opt');
-
-               inimigoJogar();
-            });
-        }
-
     </script>
 
 </body>
